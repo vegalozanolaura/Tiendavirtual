@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="shortcut icon" href="./Imagenes/Icono.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <title>Guns N Roses</title>
+    <style>
+        body {
+            transition: 0.2s ease-in-out;
+        }
+        .fa-adjust:before {
+            font-size: 30px;
+        }
+        :root {
+            --switch-dark-mode: #363636;
+            --nav-text: #363636;
+            --hero-text-p: #363636;
+            --hero-text-h1: #333;
+        }
+        .dark-mode label {
+            color: var(--switch-dark-mode);
+        }
+        .nav-links ul li a {
+            color: var(--nav-text);
+        }
+        .hero-text h1{
+            color: var(--hero-text-h1);
+        }
+        .hero-text p{
+            color: var(--hero-text-p);
+        }
+        .is-dark-mode {
+            --switch-dark-mode: white;
+            --hero-text-h1: #eeeeee;
+            --hero-text-p: #a9a9a9;
+            --nav-text: white;
+            background: rgb(32, 32, 32);
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+    <header class="header">
+        <!-- Logo -->
+        <a href="#"  id="logo">
+            <img src="./Imagenes/logo guns n roses.png" alt="logo" class="logo">
+        </a>
+        <!-- Menu -->
+        <nav class="nav-links">
+            <ul>
+                <li><a href="" class="active">Home</a></li>
+                <li><a href="">Shopping</a></li>
+                <li><a href="">Music</a></li>
+                <li><a href="">Contact</a></li>
+                <li>
+                    <div class="dark-mode">
+                        <input type="checkbox" id="checkbox">
+                        <label for="checkbox" class="fas fa-adjust"></label>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Container - Guns N Roses-->
+    <div class="container">
+        <div class="content">
+            <div class="hero-text">
+                <h1>El Mundo Del Rock De Los <br>
+                 <strong>Guns N´ Roses</strong>
+                </h1>
+                <p>
+                    Somos una banda estadounidense de hard rock formada en Hollywood en la zona de Sunset Strip,
+                 alrededor de Santa Mónica, en el área metropolitana de Los Ángeles, California en 1985
+                </p>
+                <div class="button-more">
+                    <a href="#"> A Explorar</a>
+                </div>
+            </div>
+            <div class="hero-img">
+                <img src="./Imagenes/Guitar.png" alt="" class="img-Guns">
+            </div>
+        </div>
+        <div class="elements-star">
+            <ul>
+                <li><img src="img/axl Roses.png" alt="" onclick="changeimg('img/axl.png');changecircle('#015935')"></li>
+                <li><img src="img/fortus.jpg" alt="" onclick="changeimg('img/fortus.png');changecircle('#C6617D')""></li>
+                <li><img src="img/dizzy.jpeg" alt="" onclick="changeimg('img/dizzy.png');changecircle('#D751AC')""></li>
+                <li><img src="img/frank ferrer.jpg" alt="" onclick="changeimg('img/frank ferrer.png');changecircle('#D751AC')""></li>
+                <li><img src="img/duff mckagan.jpg" alt="" onclick="changeimg('img/duff mckagan.png');changecircle('#D751AC')""></li>
+                <li><img src="img/slash.jpg" alt="" onclick="changeimg('img/Slash.png');changecircle('#D751AC')""></li>
+                
+            </ul>
+        </div>
+        <div class="redes-sociales">
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
+<script>
+    const checkbox = document.querySelector("#checkbox")
+    const changetheme = document.querySelector("body")
+
+    checkbox.addEventListener("click", () => {
+        changetheme.classList.toggle("is-dark-mode")
+
+        if (changetheme.classList.contains("is-dark-mode")) {
+            localStorage.setItem("is-dark-mode", "true")
+        } else {
+            localStorage.setItem("is-dark-mode", "false")
+        }
+    })
+    if (localStorage.getItem("is-dark-mode") == "true") {
+        changetheme.classList.add("is-dark-mode")
+    } else {
+        changetheme.classList.remove("is-dark-mode")
+    }
+</script>
+<script src="js/animate.js"></script>
+<script src="js/change.js"></script>
+</html>
